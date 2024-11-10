@@ -89,8 +89,8 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <noscript>
-          <div style="text-align: center; padding: 20px;">
-            Please enable JavaScript to view this website.
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
+            This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
           </div>
         </noscript>
       </body>
@@ -257,6 +257,11 @@ export function ErrorBoundary() {
       `}</style>
           </div>
           <Scripts />
+          <noscript>
+            <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
+              This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
+            </div>
+          </noscript>
         </body>
       </html>
     );
@@ -415,6 +420,11 @@ export function ErrorBoundary() {
       `}</style>
         </div>
         <Scripts />
+        <noscript>
+          <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
+            This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
+          </div>
+        </noscript>
       </body>
     </html>
   );
