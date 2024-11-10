@@ -79,7 +79,7 @@ export const defaultSchemaMarkup = [
     "@id": "https://8bitswiser.com/#organization",
     name: "8 Bits Wiser",
     url: "https://8bitswiser.com",
-    logo: "https://8bitswiser.com/8bitswiser.svg",
+    logo: "https://8bitswiser.com/8-bits-wiser.svg",
     founder: {
       "@id": "https://datamatt.io/#person",
     },
