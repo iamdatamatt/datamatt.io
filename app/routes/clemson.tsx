@@ -1,17 +1,21 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
+import { useLocation } from "@remix-run/react";
 import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { ActivityCard } from "../components/ActivityCard";
 import { AboutSection } from "../components/AboutSection";
+import { generateMeta } from "../utils/meta";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Things to Do in Clemson, SC" },
-    {
-      description:
-        "A comprehensive list of activities and places to visit in and around Clemson, South Carolina",
-    },
-  ];
+  const location = useLocation();
+  return generateMeta({
+    metaTitle: "Things to Do In & Around Clemson, SC | Matt Trombley",
+    metaDescription:
+      "A comprehensive list of activities and places to visit in and around Clemson, South Carolina.",
+    imageUrl: "/clemson_card.png",
+    imageAlt: "A Clemson Bucket List cover image",
+    pathname: location.pathname,
+  });
 };
 
 const activities = [
@@ -20,7 +24,7 @@ const activities = [
     description: "Everything you need to do before you graduate.",
     icon: "/paw.svg",
     buttonText: "Bucket List",
-    buttonHref: "/bucket-list",
+    buttonHref: "/bucketlist",
   },
   {
     title: "Fun Places to Visit",

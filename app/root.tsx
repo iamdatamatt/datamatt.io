@@ -9,7 +9,12 @@ import {
   useRouteError,
   useLocation,
 } from "@remix-run/react";
-import { Linkedin, Github, Twitter, Mail } from "lucide-react";
+import {
+  IconBrandLinkedin,
+  IconBrandGithub,
+  IconBrandX,
+  IconMail,
+} from "@tabler/icons-react";
 import { defaultSchemaMarkup } from "./constants/defaultSchema";
 
 import "./tailwind.css";
@@ -21,16 +26,6 @@ type StructuredData = {
 };
 
 export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
   {
     rel: "icon",
     type: "image/png",
@@ -90,7 +85,8 @@ export default function App() {
         <Scripts />
         <noscript>
           <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
-            This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
+            This website requires JavaScript to function. Please enable
+            JavaScript in your browser settings to continue.
           </div>
         </noscript>
       </body>
@@ -205,7 +201,7 @@ export function ErrorBoundary() {
                   aria-label="LinkedIn"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  <Linkedin size={24} />
+                  <IconBrandLinkedin size={24} />
                 </a>
                 <a
                   href="https://github.com/iamdatamatt"
@@ -214,7 +210,7 @@ export function ErrorBoundary() {
                   aria-label="GitHub"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  <Github size={24} />
+                  <IconBrandGithub size={24} />
                 </a>
                 <a
                   href="https://x.com/iamdatamatt"
@@ -223,21 +219,21 @@ export function ErrorBoundary() {
                   aria-label="X (Twitter)"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  <Twitter size={24} />
+                  <IconBrandX size={24} />
                 </a>
                 <a
                   href="mailto:mattrtrombley@gmail.com"
                   aria-label="Email"
                   className="text-gray-400 hover:text-emerald-400 transition-colors"
                 >
-                  <Mail size={24} />
+                  <IconMail size={24} />
                 </a>
               </div>
 
               <hr className="border-gray-700 my-12" />
 
               <footer className="text-sm text-gray-500 mb-8">
-                © {new Date().getFullYear()} Matt Trombley. All rights reserved.
+                © Matt Trombley. All rights reserved.
               </footer>
             </main>
 
@@ -259,7 +255,8 @@ export function ErrorBoundary() {
           <Scripts />
           <noscript>
             <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
-              This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
+              This website requires JavaScript to function. Please enable
+              JavaScript in your browser settings to continue.
             </div>
           </noscript>
         </body>
@@ -368,7 +365,7 @@ export function ErrorBoundary() {
                 aria-label="LinkedIn"
                 className="text-gray-400 hover:text-emerald-400 transition-colors"
               >
-                <Linkedin size={24} />
+                <IconBrandLinkedin size={24} />
               </a>
               <a
                 href="https://github.com/iamdatamatt"
@@ -377,7 +374,7 @@ export function ErrorBoundary() {
                 aria-label="GitHub"
                 className="text-gray-400 hover:text-emerald-400 transition-colors"
               >
-                <Github size={24} />
+                <IconBrandGithub size={24} />
               </a>
               <a
                 href="https://x.com/iamdatamatt"
@@ -386,21 +383,21 @@ export function ErrorBoundary() {
                 aria-label="X (Twitter)"
                 className="text-gray-400 hover:text-emerald-400 transition-colors"
               >
-                <Twitter size={24} />
+                <IconBrandX size={24} />
               </a>
               <a
                 href="mailto:mattrtrombley@gmail.com"
                 aria-label="Email"
                 className="text-gray-400 hover:text-emerald-400 transition-colors"
               >
-                <Mail size={24} />
+                <IconMail size={24} />
               </a>
             </div>
 
             <hr className="border-gray-700 my-12" />
 
             <footer className="text-sm text-gray-500 mb-8">
-              © {new Date().getFullYear()} Matt Trombley. All rights reserved.
+              © Matt Trombley. All rights reserved.
             </footer>
           </main>
 
@@ -422,7 +419,8 @@ export function ErrorBoundary() {
         <Scripts />
         <noscript>
           <div className="fixed inset-0 flex items-center justify-center bg-gray-900 text-gray-100 p-4 text-center">
-            This website requires JavaScript to function. Please enable JavaScript in your browser settings to continue.
+            This website requires JavaScript to function. Please enable
+            JavaScript in your browser settings to continue.
           </div>
         </noscript>
       </body>

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "@remix-run/react";
-import { Menu, X } from "lucide-react";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 import { useClickOutside } from "../hooks/useClickOutside";
 
 const navItems = [
   { name: "Home", href: "/clemson" },
-  { name: "Bucket List", href: "/bucket-list" },
+  { name: "Bucket List", href: "/bucketlist" },
   { name: "Fun Places", href: "/funplaces" },
   { name: "Hiking", href: "/hiking" },
   { name: "Outdoors", href: "/outdoors" },
@@ -76,9 +76,9 @@ export function Navigation() {
                 {isOpen ? "Close main menu" : "Open main menu"}
               </span>
               {isOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
+                <IconX className="h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
+                <IconMenu2 className="h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>

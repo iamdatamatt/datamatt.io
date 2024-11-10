@@ -24,7 +24,7 @@ const columns = [
 export const meta: MetaFunction = () => {
   const location = useLocation();
   return generateMeta({
-    metaTitle: "Outdoors Activities In & Around Clemson, SC",
+    metaTitle: "Outdoors Activities In & Around Clemson, SC | Matt Trombley",
     metaDescription:
       "Bored in Clemson? Not anymore! Here's a comprehensive list of outdoors activities that are within driving distance of Clemson, South Carolina.",
     imageUrl: "/clemson_card.png",

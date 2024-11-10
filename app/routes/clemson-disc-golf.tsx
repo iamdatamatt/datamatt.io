@@ -16,7 +16,7 @@ interface ClemsonDiscGolfItem {
 export const meta: MetaFunction = () => {
   const location = useLocation();
   return generateMeta({
-    metaTitle: "The Unofficial Clemson Campus Disc Golf Courses",
+    metaTitle: "The Unofficial Clemson Campus Disc Golf Courses | Matt Trombley",
     metaDescription:
       "Find out how to play the hidden disc golf courses on Clemson University's campus. The holes are places on campus you'd never expect!",
     imageUrl: "/clemson_card.png",

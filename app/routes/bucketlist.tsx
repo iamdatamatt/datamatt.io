@@ -20,9 +20,9 @@ const columns = [
 export const meta: MetaFunction = () => {
   const location = useLocation();
   return generateMeta({
-    metaTitle: "The Official Clemson Bucket List",
+    metaTitle: "The Official Clemson Bucket List | Matt Trombley",
     metaDescription:
-      "A comprehensive list of must-do activities for Clemson students before graduating.",
+      "A comprehensive list of must-do activities for Clemson students before graduating, from the Monsoon Room to Solid Orange Friday.",
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
     pathname: location.pathname,
@@ -31,7 +31,7 @@ export const meta: MetaFunction = () => {
 
 export async function loader({ context }: LoaderFunctionArgs) {
   return dbLoader<BucketListItem>({
-    tableName: "clemson_attractions",
+    tableName: "clemson_bucket_list",
     columns: ["name", "info"],
     mockData: [
       {

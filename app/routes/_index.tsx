@@ -1,15 +1,23 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
-import { Linkedin, Github, Twitter, Mail } from "lucide-react";
+import { useLocation } from "@remix-run/react";
+import { generateMeta } from "../utils/meta";
+import {
+  IconBrandLinkedin,
+  IconBrandGithub,
+  IconBrandX,
+  IconMail,
+} from "@tabler/icons-react";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Matt Trombley | Data Scientist & Tech Consultant" },
-    {
-      name: "description",
-      content:
-        "The digital profile of Matt Trombley, showcasing personal projects, work experience, and the best Clemson has to offer.",
-    },
-  ];
+  const location = useLocation();
+  return generateMeta({
+    metaTitle: "Matt Trombley | Data Scientist & Tech Consultant",
+    metaDescription:
+      "The digital profile of Matt Trombley, showcasing personal projects, work experience, and the best Clemson has to offer.",
+    imageUrl: "/social-card.png",
+    imageAlt: "Matt Trombley profile cover image",
+    pathname: location.pathname,
+  });
 };
 
 const profileLinks = [
@@ -34,7 +42,7 @@ const profileLinks = [
 const workHistory = [
   {
     company: "Shopify",
-    link: "https://shopify.com",
+    link: "https://www.shopify.com",
     logo: "/shopify-logo.svg",
     roles: [
       {
@@ -91,7 +99,14 @@ export default function Index() {
                        transition-transform hover:scale-105"
             />
           </div>
-          <h1 className="text-3xl font-bold">Matt Trombley</h1>
+          <h1 className="text-3xl font-bold flex items-center gap-3">
+            Matt Trombley
+            <img
+              src="/data-matt-logo.svg"
+              alt="Data Matt Logo"
+              className="h-8 w-8"
+            />
+          </h1>
         </div>
 
         {/* Links Section */}
@@ -185,7 +200,7 @@ export default function Index() {
             aria-label="LinkedIn"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
           >
-            <Linkedin size={24} />
+            <IconBrandLinkedin size={24} />
           </a>
           <a
             href="https://github.com/iamdatamatt"
@@ -194,7 +209,7 @@ export default function Index() {
             aria-label="GitHub"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
           >
-            <Github size={24} />
+            <IconBrandGithub size={24} />
           </a>
           <a
             href="https://x.com/iamdatamatt"
@@ -203,21 +218,21 @@ export default function Index() {
             aria-label="X (Twitter)"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
           >
-            <Twitter size={24} />
+            <IconBrandX size={24} />
           </a>
           <a
             href="mailto:mattrtrombley@gmail.com"
             aria-label="Email"
             className="text-gray-400 hover:text-emerald-400 transition-colors"
           >
-            <Mail size={24} />
+            <IconMail size={24} />
           </a>
         </div>
 
         <hr className="border-gray-700 my-12" />
 
         <footer className="text-sm text-gray-500 mb-8">
-          © {new Date().getFullYear()} Matt Trombley. All rights reserved.
+          © Matt Trombley. All rights reserved.
         </footer>
       </main>
 
