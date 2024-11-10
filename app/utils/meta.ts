@@ -103,7 +103,7 @@ export function generateMeta({
           url: "https://datamatt.io/",
         },
         datePublished: "2017-05-31",
-        dateModified: new Date().toISOString().split("T")[0],
+        dateModified: "2024-11-10",
       },
     },
   ];
