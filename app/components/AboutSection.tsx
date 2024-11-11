@@ -14,7 +14,9 @@ export function AboutSection({
       <h2 className="text-2xl font-semibold mb-4 text-black"> {title} </h2>
       <p className="mb-4 text-black" dangerouslySetInnerHTML={description}></p>
       {updated_at && (
-        <p className="text-sm text-gray-500 italic">Last Updated {updated_at}</p>
+        <p className="text-sm text-gray-500 italic">
+          Last Updated {updated_at}
+        </p>
       )}
     </section>
   );

@@ -1,5 +1,3 @@
-import { json } from "@remix-run/cloudflare";
-
 interface DbLoaderOptions<T> {
   tableName: string;
   columns: string[];
@@ -21,7 +19,7 @@ export async function dbLoader<T>({
 
   // Return mock data in development environment
   if (process.env.NODE_ENV === "development") {
-    return json({
+    return Response.json({
       items: mockData || [],
       error: null,
     });
@@ -29,7 +27,7 @@ export async function dbLoader<T>({
 
   if (!db) {
     console.error("Database not available in production");
-    return json({
+    return Response.json({
       items: [],
       error: "Database connection error in production environment",
     });
@@ -42,15 +40,15 @@ export async function dbLoader<T>({
           columns[0]
         } ASC`
       )
-      .all<T>();
+      .all();
 
-    return json({
+    return Response.json({
       items: items.results,
       error: null,
     });
   } catch (error) {
     console.error("Database error:", error);
-    return json({
+    return Response.json({
       items: [],
       error: `Database error: ${
         error instanceof Error ? error.message : "Unknown error"
@@ -92,7 +90,7 @@ export async function dbLoaderDiscGolf<T>({
 
   // Return mock data in development environment
   if (process.env.NODE_ENV === "development") {
-    return json({
+    return Response.json({
       items: mockData || [],
       error: null,
     });
@@ -100,7 +98,7 @@ export async function dbLoaderDiscGolf<T>({
 
   if (!db) {
     console.error("Database not available in production");
-    return json({
+    return Response.json({
       items: [],
       error: "Database connection error in production environment",
     });
@@ -120,15 +118,15 @@ export async function dbLoaderDiscGolf<T>({
             ORDER BY c.course_id, h.hole_number
            `
       )
-      .all<T>();
+      .all();
 
-    return json({
+    return Response.json({
       items: items.results,
       error: null,
     });
   } catch (error) {
     console.error("Database error:", error);
-    return json({
+    return Response.json({
       items: [],
       error: `Database error: ${
         error instanceof Error ? error.message : "Unknown error"

@@ -3,12 +3,11 @@ import { Footer } from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
-  className?: string;
 }
 
-export function Layout({ children, className = "" }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   return (
-    <div className={`min-h-screen bg-gray-100 ${className}`}>
+    <div className="min-h-screen bg-gray-100">
       <Navigation />
       {children}
       <Footer />

@@ -11,7 +11,7 @@ import {
 } from "@tanstack/react-table";
 
 interface Column {
-  key: string;
+  accessorKey: string;
   header: string;
   type?: "text" | "url";
   width?: number;
