@@ -116,8 +116,6 @@ export default function Index() {
                   <h3 className="text-lg font-semibold text-emerald-400 text-left">
                     <a
                       href={profileLink.link}
-                      target="_blank"
-                      rel="noopener"
                       className="hover:text-emerald-300 transition-colors"
                     >
                       {profileLink.title}
