@@ -4,13 +4,13 @@ import type {
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { DataTable } from "../components/DataTable";
 import { AboutSection } from "../components/AboutSection";
 import { dbLoader } from "../utils/db-loader";
 import { generateMeta } from "../utils/meta";
-
+import { Navigation } from "../components/Navigation";
+import { Footer } from "../components/Footer";
 interface BucketListItem {
   name: string;
   info: string;
@@ -71,7 +71,8 @@ export async function loader({ context }: LoaderFunctionArgs) {
 export default function BucketListPage() {
   const { items } = useLoaderData<typeof loader>();
   return (
-    <Layout>
+    <div className="min-h-screen bg-gray-100">
+      <Navigation />
       <HeroHeader
         title="The Official Clemson Bucket List"
         subtitle="Make sure you do everything here before graduating!"
@@ -90,6 +91,7 @@ export default function BucketListPage() {
         />
         <DataTable data={items} columns={columns} />
       </main>
-    </Layout>
+      <Footer />
+    </div>
   );
 }

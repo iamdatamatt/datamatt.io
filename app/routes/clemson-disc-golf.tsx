@@ -4,12 +4,12 @@ import type {
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { AboutSection } from "../components/AboutSection";
 import { dbLoaderDiscGolf } from "../utils/db-loader";
 import { generateMeta } from "../utils/meta";
-
+import { Navigation } from "../components/Navigation";
+import { Footer } from "../components/Footer";
 interface ClemsonDiscGolfItem {
   course_name: string;
   course_description: string;
@@ -69,7 +69,8 @@ export default function ClemsonDiscGolfPage() {
   }, {} as Record<string, { description: string; holes: { number: string; description: string }[] }>);
 
   return (
-    <Layout>
+    <div className="min-h-screen bg-gray-100">
+      <Navigation />
       <HeroHeader
         title="The Unofficial Clemson On-Campus Disc Golf Courses"
         subtitle="Grab your discs and get to playing!"
@@ -144,6 +145,7 @@ export default function ClemsonDiscGolfPage() {
           ))}
         </div>
       </main>
-    </Layout>
+      <Footer />
+    </div>
   );
 }
