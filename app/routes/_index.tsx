@@ -1,21 +1,33 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
-import { useLocation } from "@remix-run/react";
 import { generateMeta } from "../utils/meta";
 
+const canonical = "https://datamatt.io";
+
 export const meta: MetaFunction = () => {
-  const location = useLocation();
   return generateMeta({
     metaTitle: "Matt Trombley | Data Scientist & Tech Consultant",
     metaDescription:
       "The digital profile of Matt Trombley, showcasing personal projects, work experience, and the best Clemson has to offer.",
     imageUrl: "/social-card.png",
     imageAlt: "Matt Trombley profile cover image",
-    pathname: location.pathname,
+    canonical,
   });
 };
 
 export const links: LinksFunction = () => {
-  return [{ rel: "canonical", href: "https://datamatt.io" }];
+  return [
+    { rel: "canonical", href: canonical },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon-96x96.png",
+      sizes: "96x96",
+    },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+    { rel: "shortcut icon", href: "/favicon.ico" },
+    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    { rel: "manifest", href: "/site.webmanifest" },
+  ];
 };
 
 const profileLinks = [
