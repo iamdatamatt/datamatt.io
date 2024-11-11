@@ -21,14 +21,15 @@ const canonical = "https://datamatt.io/clemson-disc-golf";
 
 export const meta: MetaFunction = () => {
   return generateMeta({
-    metaTitle: "The Unofficial Clemson Campus Disc Golf Courses | Matt Trombley",
+    metaTitle:
+      "The Unofficial Clemson Campus Disc Golf Courses | Matt Trombley",
     metaDescription:
       "Find out how to play the hidden disc golf courses on Clemson University's campus. The holes are places on campus you'd never expect!",
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
   });
-};  
+};
 
 export const links: LinksFunction = () => {
   return [
@@ -41,7 +42,11 @@ export const links: LinksFunction = () => {
     },
     { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     { rel: "shortcut icon", href: "/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
     { rel: "manifest", href: "/site.webmanifest" },
   ];
 };
@@ -50,8 +55,13 @@ export async function loader({ context }: LoaderFunctionArgs) {
   return dbLoaderDiscGolf<ClemsonDiscGolfItem>({ context });
 }
 
+// Add this type
+type LoaderData = {
+  items: ClemsonDiscGolfItem[];
+};
+
 export default function ClemsonDiscGolfPage() {
-  const { items } = useLoaderData<typeof loader>();
+  const { items } = useLoaderData<typeof loader>() as LoaderData;
 
   // Group items by course
   const courseMap = items.reduce((acc, item) => {

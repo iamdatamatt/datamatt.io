@@ -14,13 +14,13 @@ import { Footer } from "../components/Footer";
 interface BucketListItem {
   name: string;
   info: string;
-  } 
+}
 
 const canonical = "https://datamatt.io/bucketlist";
 
 const columns = [
-  { header: "Name", accessorKey: "name", type: "text", width: 200 },
-  { header: "Info", accessorKey: "info", type: "text", width: 400 },
+  { header: "Name", accessorKey: "name", type: "text" as const, width: 200 },
+  { header: "Info", accessorKey: "info", type: "text" as const, width: 400 },
 ];
 
 export const meta: MetaFunction = () => {
@@ -45,13 +45,17 @@ export const links: LinksFunction = () => {
     },
     { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     { rel: "shortcut icon", href: "/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
     { rel: "manifest", href: "/site.webmanifest" },
   ];
 };
 
 export async function loader({ context }: LoaderFunctionArgs) {
-  return dbLoader<BucketListItem>({
+  const response = await dbLoader<BucketListItem>({
     tableName: "clemson_bucket_list",
     columns: ["name", "info"],
     mockData: [
@@ -66,6 +70,8 @@ export async function loader({ context }: LoaderFunctionArgs) {
     ],
     context,
   });
+  const data = (await response.json()) as { items: BucketListItem[] };
+  return { items: data.items };
 }
 
 export default function BucketListPage() {

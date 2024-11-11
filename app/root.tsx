@@ -8,26 +8,7 @@ import {
   useRouteError,
 } from "@remix-run/react";
 import { Fallback } from "./components/Fallback";
-import { useEffect } from "react";
 import "./tailwind.css";
-
-function MutationDebugger() {
-  useEffect(() => {
-    const mutationObserver = new MutationObserver((mutations) => {
-      console.log('DOM mutations:', mutations);
-    });
-    
-    mutationObserver.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    });
-    
-    return () => mutationObserver.disconnect();
-  }, []);
-
-  return null;
-}
 
 export default function App() {
   return (
@@ -42,7 +23,6 @@ export default function App() {
       </head>
       <body className="min-h-screen text-gray-300">
         <Outlet />
-        <MutationDebugger />
         <ScrollRestoration />
         <Scripts />
       </body>
