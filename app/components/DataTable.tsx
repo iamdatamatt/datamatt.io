@@ -34,7 +34,7 @@ export function DataTable({ data, columns }: DataTableProps) {
         size: col.width || 150,
         cell: (info) => {
           const value = info.getValue() as string;
-          if (value?.startsWith("http") || value?.startsWith("https")) {
+          if (typeof value === 'string' && (value.startsWith("http") || value.startsWith("https"))) {
             return (
               <a
                 href={value}
