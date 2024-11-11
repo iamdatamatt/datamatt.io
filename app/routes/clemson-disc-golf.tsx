@@ -1,5 +1,9 @@
-import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { useLoaderData, useLocation } from "@remix-run/react";
+import type {
+  LinksFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
 import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { AboutSection } from "../components/AboutSection";
@@ -13,16 +17,33 @@ interface ClemsonDiscGolfItem {
   hole_description: string;
 }
 
+const canonical = "https://datamatt.io/clemson-disc-golf";
+
 export const meta: MetaFunction = () => {
-  const location = useLocation();
   return generateMeta({
     metaTitle: "The Unofficial Clemson Campus Disc Golf Courses | Matt Trombley",
     metaDescription:
       "Find out how to play the hidden disc golf courses on Clemson University's campus. The holes are places on campus you'd never expect!",
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
-    pathname: location.pathname,
+    canonical,
   });
+};  
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "canonical", href: canonical },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon-96x96.png",
+      sizes: "96x96",
+    },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+    { rel: "shortcut icon", href: "/favicon.ico" },
+    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    { rel: "manifest", href: "/site.webmanifest" },
+  ];
 };
 
 export async function loader({ context }: LoaderFunctionArgs) {

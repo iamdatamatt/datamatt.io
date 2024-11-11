@@ -1,5 +1,9 @@
-import type { MetaFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { useLoaderData, useLocation } from "@remix-run/react";
+import type {
+  LinksFunction,
+  MetaFunction,
+  LoaderFunctionArgs,
+} from "@remix-run/cloudflare";
+import { useLoaderData } from "@remix-run/react";
 import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { DataTable } from "../components/DataTable";
@@ -13,6 +17,8 @@ interface HikingItem {
   info: string;
   link: string;
 }
+
+const canonical = "https://datamatt.io/hiking";
 
 const columns = [
   { header: "Name", accessorKey: "name", type: "text", width: 200 },
@@ -31,15 +37,30 @@ const columns = [
 ];
 
 export const meta: MetaFunction = () => {
-  const location = useLocation();
   return generateMeta({
     metaTitle: "Hiking In & Around Clemson, SC | Matt Trombley",
     metaDescription:
       "Bored in Clemson? Not anymore! Here's a comprehensive list of hiking spots that are within driving distance of Clemson, South Carolina.",
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
-    pathname: location.pathname,
+    canonical,
   });
+};
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "canonical", href: canonical },
+    {
+      rel: "icon",
+      type: "image/png",
+      href: "/favicon-96x96.png",
+      sizes: "96x96",
+    },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+    { rel: "shortcut icon", href: "/favicon.ico" },
+    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    { rel: "manifest", href: "/site.webmanifest" },
+  ];
 };
 
 export async function loader({ context }: LoaderFunctionArgs) {
