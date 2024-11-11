@@ -21,10 +21,15 @@ interface OutdoorsItem {
 const canonical = "https://datamatt.io/outdoors";
 
 const columns = [
-  { header: "Name", accessorKey: "name", type: "text", width: 200 },
-  { header: "Location", accessorKey: "location", type: "text", width: 200 },
-  { header: "Info", accessorKey: "info", type: "text", width: 400 },
-  { header: "Link", accessorKey: "link", type: "url", width: 200 },
+  { header: "Name", accessorKey: "name", type: "text" as const, width: 200 },
+  {
+    header: "Location",
+    accessorKey: "location",
+    type: "text" as const,
+    width: 200,
+  },
+  { header: "Info", accessorKey: "info", type: "text" as const, width: 400 },
+  { header: "Link", accessorKey: "link", type: "url" as const, width: 200 },
 ];
 
 export const meta: MetaFunction = () => {
@@ -49,13 +54,17 @@ export const links: LinksFunction = () => {
     },
     { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     { rel: "shortcut icon", href: "/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
     { rel: "manifest", href: "/site.webmanifest" },
   ];
 };
 
 export async function loader({ context }: LoaderFunctionArgs) {
-  return dbLoader<OutdoorsItem>({
+  const response = await dbLoader<OutdoorsItem>({
     tableName: "clemson_outdoors",
     columns: ["name", "location", "info", "link"],
     mockData: [
@@ -74,6 +83,8 @@ export async function loader({ context }: LoaderFunctionArgs) {
     ],
     context,
   });
+  const data = (await response.json()) as { items: OutdoorsItem[] };
+  return { items: data.items };
 }
 
 export default function OutdoorsPage() {

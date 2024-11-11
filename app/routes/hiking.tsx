@@ -14,6 +14,10 @@ import { Footer } from "../components/Footer";
 interface HikingItem {
   name: string;
   location: string;
+  minutes_from_clemson: string;
+  latitude: string;
+  longitude: string;
+  trail_length: string;
   info: string;
   link: string;
 }
@@ -21,19 +25,28 @@ interface HikingItem {
 const canonical = "https://datamatt.io/hiking";
 
 const columns = [
-  { header: "Name", accessorKey: "name", type: "text", width: 200 },
-  { header: "Location", accessorKey: "location", type: "text", width: 200 },
+  { header: "Name", accessorKey: "name", type: "text" as const, width: 200 },
+  {
+    header: "Location",
+    accessorKey: "location",
+    type: "text" as const,
+    width: 200,
+  },
   {
     header: "Minutes from Clemson",
     accessorKey: "minutes_from_clemson",
-    type: "text",
+    type: "text" as const,
     width: 200,
   },
-  { header: "Latitude", accessorKey: "latitude", type: "text" },
-  { header: "Longitude", accessorKey: "longitude", type: "text" },
-  { header: "Trail Length", accessorKey: "trail_length", type: "text" },
-  { header: "Info", accessorKey: "info", type: "text", width: 400 },
-  { header: "Link", accessorKey: "link", type: "url", width: 200 },
+  { header: "Latitude", accessorKey: "latitude", type: "text" as const },
+  { header: "Longitude", accessorKey: "longitude", type: "text" as const },
+  {
+    header: "Trail Length",
+    accessorKey: "trail_length",
+    type: "text" as const,
+  },
+  { header: "Info", accessorKey: "info", type: "text" as const, width: 400 },
+  { header: "Link", accessorKey: "link", type: "url" as const, width: 200 },
 ];
 
 export const meta: MetaFunction = () => {
@@ -58,13 +71,17 @@ export const links: LinksFunction = () => {
     },
     { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
     { rel: "shortcut icon", href: "/favicon.ico" },
-    { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      href: "/apple-touch-icon.png",
+    },
     { rel: "manifest", href: "/site.webmanifest" },
   ];
 };
 
 export async function loader({ context }: LoaderFunctionArgs) {
-  return dbLoader<HikingItem>({
+  const response = await dbLoader<HikingItem>({
     tableName: "clemson_hiking",
     columns: [
       "name",
@@ -80,9 +97,9 @@ export async function loader({ context }: LoaderFunctionArgs) {
       {
         name: "Visit Death Valley",
         location: "Clemson, SC",
-        minutes_from_clemson: 15,
-        latitude: 34.6792,
-        longitude: -82.8385,
+        minutes_from_clemson: "15",
+        latitude: "34.6792",
+        longitude: "-82.8385",
         trail_length: "1.5 miles",
         info: "Watch a game in Memorial Stadium",
         link: "https://www.clemsontigers.com/schedule",
@@ -90,9 +107,9 @@ export async function loader({ context }: LoaderFunctionArgs) {
       {
         name: "Run Down The Hill",
         location: "Clemson, SC",
-        minutes_from_clemson: 15,
-        latitude: 34.6792,
-        longitude: -82.8385,
+        minutes_from_clemson: "15",
+        latitude: "34.6792",
+        longitude: "-82.8385",
         trail_length: "1.5 miles",
         info: "Experience the most exciting 25 seconds in college football",
         link: "https://www.clemsontigers.com/schedule",
@@ -100,6 +117,8 @@ export async function loader({ context }: LoaderFunctionArgs) {
     ],
     context,
   });
+  const data = (await response.json()) as { items: HikingItem[] };
+  return { items: data.items };
 }
 
 export default function HikingPage() {
