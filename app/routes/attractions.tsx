@@ -4,12 +4,13 @@ import type {
   LoaderFunctionArgs,
 } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { DataTable } from "../components/DataTable";
 import { AboutSection } from "../components/AboutSection";
 import { dbLoader } from "../utils/db-loader";
 import { generateMeta } from "../utils/meta";
+import { Navigation } from "../components/Navigation";
+import { Footer } from "../components/Footer";
 
 interface AttractionItem {
   name: string;
@@ -79,7 +80,8 @@ export async function loader({ context }: LoaderFunctionArgs) {
 export default function AttractionsPage() {
   const { items } = useLoaderData<typeof loader>();
   return (
-    <Layout>
+    <div className="min-h-screen bg-gray-100">
+      <Navigation />
       <HeroHeader
         title="Attractions Near Clemson, SC"
         subtitle="All the things that don't fit in the other categories."
@@ -98,6 +100,7 @@ export default function AttractionsPage() {
         />
         <DataTable data={items} columns={columns} />
       </main>
-    </Layout>
+      <Footer />
+    </div>
   );
 }

@@ -1,9 +1,10 @@
 import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
-import { Layout } from "../components/Layout";
 import { HeroHeader } from "../components/Header";
 import { ActivityCard } from "../components/ActivityCard";
 import { AboutSection } from "../components/AboutSection";
 import { generateMeta } from "../utils/meta";
+import { Navigation } from "../components/Navigation";
+import { Footer } from "../components/Footer";
 
 const canonical = "https://datamatt.io/clemson";
 
@@ -81,7 +82,8 @@ const activities = [
 
 export default function ClemsonPage() {
   return (
-    <Layout>
+    <div className="min-h-screen bg-gray-100">
+      <Navigation />
       <HeroHeader
         title="A List of Things to Do In & Around Clemson, South Carolina"
         subtitle="Bored in Clemson? I've got you covered."
@@ -106,6 +108,7 @@ export default function ClemsonPage() {
           ))}
         </div>
       </main>
-    </Layout>
+      <Footer />
+    </div>
   );
 }

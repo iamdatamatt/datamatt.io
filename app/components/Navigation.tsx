@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "@remix-run/react";
-import { useClickOutside } from "../hooks/useClickOutside";
 
 const navItems = [
   { name: "Home", href: "/clemson" },
@@ -11,6 +10,25 @@ const navItems = [
   { name: "Attractions", href: "/attractions" },
   { name: "Disc Golf", href: "/clemson-disc-golf" },
 ];
+
+export function useClickOutside(handler: () => void) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        handler();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [handler]);
+
+  return ref;
+}
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
