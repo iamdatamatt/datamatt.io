@@ -20,6 +20,20 @@ export default function App() {
         <Links />
         <meta name="author" content="Matt Trombley" />
         <meta name="apple-mobile-web-app-title" content="Matt Trombley" />
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-6T56RSE14Y`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-6T56RSE14Y');
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen text-gray-300">
         <Outlet />
