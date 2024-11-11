@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/cloudflare";
+import type { LinksFunction, MetaFunction } from "@remix-run/cloudflare";
 import { useLocation } from "@remix-run/react";
 import { generateMeta } from "../utils/meta";
 
@@ -12,6 +12,10 @@ export const meta: MetaFunction = () => {
     imageAlt: "Matt Trombley profile cover image",
     pathname: location.pathname,
   });
+};
+
+export const links: LinksFunction = () => {
+  return [{ rel: "canonical", href: "https://datamatt.io" }];
 };
 
 const profileLinks = [

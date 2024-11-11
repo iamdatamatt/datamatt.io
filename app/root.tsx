@@ -7,7 +7,6 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
   useRouteError,
-  useLocation,
 } from "@remix-run/react";
 
 import "./tailwind.css";
@@ -143,9 +142,6 @@ const defaultSchemaMarkup = [
 ];
 
 export default function App() {
-  const location = useLocation();
-  const canonical = `https://datamatt.io${location.pathname}`;
-
   return (
     <html lang="en" className="min-h-screen bg-[#0a0a0a]">
       <head>
@@ -154,7 +150,6 @@ export default function App() {
         <Meta />
         <meta name="author" content="Matt Trombley" />
         <meta name="apple-mobile-web-app-title" content="Matt Trombley" />
-        <link rel="canonical" href={canonical} />
         <Links />
         {defaultSchemaMarkup.map((markup, index) => (
           <script
