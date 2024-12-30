@@ -8,7 +8,7 @@ export function HeroHeader({ title, subtitle }: HeroHeaderProps) {
     <div
       className="h-64 bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4"
       style={{
-        backgroundImage: "url(/clemson-sunset.webp)",
+        backgroundImage: "url(/cdn-cgi/image/format=auto/clemson-sunset.webp)",
         textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
       }}
     >

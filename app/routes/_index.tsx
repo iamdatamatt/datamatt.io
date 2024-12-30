@@ -106,7 +106,7 @@ export default function Index() {
           <div className="relative">
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-emerald-400 to-gray-700 animate-spin"></div>
             <img
-              src="/cdn-cgi/image/fit=scale-down,format=auto,width=500/matt-trombley-profile-pic.webp"
+              src="/cdn-cgi/image/fit=scale-down,format=auto,width=192/matt-trombley-profile-pic.webp"
               alt="Matt Trombley"
               className="relative w-24 h-24 rounded-full object-cover 
                        p-[3px] bg-gray-900
