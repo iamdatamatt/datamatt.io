@@ -40,6 +40,20 @@ export const meta: MetaFunction = () => {
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
+    breadcrumbs: [
+      {
+        name: "Home",
+        item: "https://datamatt.io",
+      },
+      {
+        name: "Things to Do In & Around Clemson, SC",
+        item: "https://datamatt.io/clemson",
+      },
+      {
+        name: "Outdoors Activities In & Around Clemson, SC",
+        item: "https://datamatt.io/outdoors",
+      },
+    ],
   });
 };
 

@@ -16,6 +16,16 @@ export const meta: MetaFunction = () => {
     imageUrl: "/clemson_card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
+    breadcrumbs: [
+      {
+        name: "Home",
+        item: "https://datamatt.io",
+      },
+      {
+        name: "Things to Do In & Around Clemson, SC",
+        item: "https://datamatt.io/clemson",
+      },
+    ],
   });
 };
 
@@ -50,35 +60,35 @@ const activities = [
   {
     title: "Fun Places to Visit",
     description: "Movie theaters, mini golf, and more.",
-    icon: "/cdn-cgi/image/fit=scale-down,format=auto,width=192/fun.webp",
+    icon: "/cdn-cgi/image/fit=scale-down,format=avif,width=192/fun.webp",
     buttonText: "Fun Places",
     buttonHref: "/funplaces",
   },
   {
     title: "Campus Disc Golf",
     description: "The unofficial on-campus disc golf courses.",
-    icon: "/cdn-cgi/image/fit=scale-down,format=auto,width=192/disc-golf.webp",
+    icon: "/cdn-cgi/image/fit=scale-down,format=avif,width=192/disc-golf.webp",
     buttonText: "Disc Golf",
     buttonHref: "/clemson-disc-golf",
   },
   {
     title: "Hiking Spots",
     description: "All the best and most scenic spots to hike in the area.",
-    icon: "/cdn-cgi/image/fit=scale-down,format=auto,width=192/hike.webp",
+    icon: "/cdn-cgi/image/fit=scale-down,format=avif,width=192/hike.webp",
     buttonText: "Hiking",
     buttonHref: "/hiking",
   },
   {
     title: "Misc. Outdoors",
     description: "More outdoors, including parks and disc golf courses.",
-    icon: "/cdn-cgi/image/fit=scale-down,format=auto,width=192/outdoors.webp",
+    icon: "/cdn-cgi/image/fit=scale-down,format=avif,width=192/outdoors.webp",
     buttonText: "Outdoors",
     buttonHref: "/outdoors",
   },
   {
     title: "Misc. Attractions",
     description: "Museums, farmer's markets, and more.",
-    icon: "/cdn-cgi/image/fit=scale-down,format=auto,width=192/ride.webp",
+    icon: "/cdn-cgi/image/fit=scale-down,format=avif,width=192/ride.webp",
     buttonText: "Attractions",
     buttonHref: "/attractions",
   },

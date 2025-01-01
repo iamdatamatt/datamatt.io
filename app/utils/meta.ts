@@ -4,6 +4,10 @@ interface MetaOptions {
   imageUrl: string;
   imageAlt: string;
   canonical: string;
+  breadcrumbs?: {
+    name: string;
+    item: string;
+  }[];
 }
 
 export function generateMeta({
@@ -12,8 +16,9 @@ export function generateMeta({
   imageUrl,
   imageAlt,
   canonical,
+  breadcrumbs,
 }: MetaOptions) {
-  return [
+  const existingMeta = [
     { title: metaTitle },
     { name: "description", content: metaDescription },
     {
@@ -205,4 +210,21 @@ export function generateMeta({
       },
     },
   ];
+
+  if (breadcrumbs) {
+    existingMeta.push({
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: crumb.name,
+          item: crumb.item,
+        })),
+      },
+    });
+  }
+
+  return existingMeta;
 }
