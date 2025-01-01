@@ -186,6 +186,7 @@ export default function Index() {
                     <img
                       src={job.logo}
                       alt={`${job.company} logo`}
+                      loading="lazy"
                       className="w-8 h-8 object-contain"
                     />
                   </a>

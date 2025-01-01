@@ -50,7 +50,7 @@ export function Navigation() {
         <div className="flex justify-between h-16">
           {/* Logo and Desktop Navigation */}
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
+            <Link to="/" prefetch="intent" className="flex-shrink-0">
               <div className="w-12 h-12 rounded-lg flex items-center justify-center">
                 <img
                   src="/data-matt-logo.svg"
@@ -66,6 +66,7 @@ export function Navigation() {
                 <Link
                   key={item.name}
                   to={item.href}
+                  prefetch="intent"
                   className={`py-2 transition-colors ${
                     isCurrentRoute(item.href)
                       ? "text-white font-medium"
@@ -144,6 +145,7 @@ export function Navigation() {
             <Link
               key={item.name}
               to={item.href}
+              prefetch="intent"
               className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
                 isCurrentRoute(item.href)
                   ? "bg-gray-900 text-white font-medium"
