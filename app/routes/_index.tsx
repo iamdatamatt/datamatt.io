@@ -8,7 +8,7 @@ export const meta: MetaFunction = () => {
     metaTitle: "Matt Trombley | Data Scientist & Tech Consultant",
     metaDescription:
       "The digital profile of Matt Trombley, showcasing personal projects, work experience, and the best Clemson has to offer.",
-    imageUrl: "/social-card.png",
+    imageUrl: "https://datamatt.io/social-card.png",
     imageAlt: "Matt Trombley profile cover image",
     canonical,
     breadcrumbs: [

@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
     metaTitle: "Things to Do In & Around Clemson, SC | Matt Trombley",
     metaDescription:
       "A comprehensive list of activities and places to visit in and around Clemson, South Carolina.",
-    imageUrl: "/clemson_card.png",
+    imageUrl: "https://datamatt.io/clemson-card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
     breadcrumbs: [

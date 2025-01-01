@@ -28,7 +28,7 @@ export const meta: MetaFunction = () => {
     metaTitle: "The Official Clemson Bucket List | Matt Trombley",
     metaDescription:
       "A comprehensive list of must-do activities for Clemson students before graduating, from the Monsoon Room to Solid Orange Friday.",
-    imageUrl: "/clemson_card.png",
+    imageUrl: "https://datamatt.io/clemson-card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
     breadcrumbs: [

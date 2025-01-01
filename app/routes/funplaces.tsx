@@ -38,7 +38,7 @@ export const meta: MetaFunction = () => {
     metaTitle: "Fun Places to Visit In & Around Clemson, SC | Matt Trombley",
     metaDescription:
       "Bored in Clemson? Not anymore! Here's a comprehensive list of fun places that are within driving distance of Clemson, South Carolina.",
-    imageUrl: "/clemson_card.png",
+    imageUrl: "https://datamatt.io/clemson-card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
     breadcrumbs: [

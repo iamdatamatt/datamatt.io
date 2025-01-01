@@ -25,7 +25,7 @@ export const meta: MetaFunction = () => {
       "The Unofficial Clemson Campus Disc Golf Courses | Matt Trombley",
     metaDescription:
       "Find out how to play the hidden disc golf courses on Clemson University's campus. The holes are places on campus you'd never expect!",
-    imageUrl: "/clemson_card.png",
+    imageUrl: "https://datamatt.io/clemson-card.png",
     imageAlt: "A Clemson Bucket List cover image",
     canonical,
     breadcrumbs: [
