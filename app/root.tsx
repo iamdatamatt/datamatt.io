@@ -20,7 +20,6 @@ export default function App() {
         <Links />
         <meta name="author" content="Matt Trombley" />
         <meta name="apple-mobile-web-app-title" content="Matt Trombley" />
-        {/*
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=G-6T56RSE14Y`}
@@ -35,7 +34,6 @@ export default function App() {
             `,
           }}
         />
-        */}
       </head>
       <body className="min-h-screen text-gray-300">
         <Outlet />
