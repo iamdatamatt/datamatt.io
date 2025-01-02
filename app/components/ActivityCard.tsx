@@ -18,7 +18,14 @@ export function ActivityCard({
   return (
     <div className="bg-white rounded-lg p-6 shadow-md flex flex-col h-full">
       <div className="flex flex-col items-center flex-grow">
-        <img src={icon} alt={title} loading="lazy" className="w-24 h-24 mb-4" />
+        <img
+          src={icon}
+          alt={title}
+          loading="lazy"
+          className="w-24 h-24 mb-4"
+          width={96}
+          height={96}
+        />
         <h3 className="text-xl font-semibold mb-2 text-black">{title}</h3>
         <p className="text-gray-600 text-center mb-6">{description}</p>
       </div>

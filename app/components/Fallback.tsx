@@ -66,6 +66,8 @@ export function Fallback({ variant = "not_found" }: FallbackProps) {
                   className="relative w-24 h-24 rounded-full object-cover 
                        p-[3px] bg-gray-900
                        transition-transform hover:scale-105"
+                  width={90}
+                  height={90}
                 />
               </div>
               <h1 className="text-3xl font-bold">Matt Trombley</h1>

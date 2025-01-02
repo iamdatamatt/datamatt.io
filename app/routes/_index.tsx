@@ -117,6 +117,8 @@ export default function Index() {
               className="relative w-24 h-24 rounded-full object-cover 
                        p-[3px] bg-gray-900
                        transition-transform hover:scale-105"
+              width={90}
+              height={90}
             />
           </div>
           <h1 className="text-3xl font-bold flex items-center gap-3">
@@ -125,6 +127,8 @@ export default function Index() {
               src="/data-matt-logo.svg"
               alt="Data Matt Logo"
               className="h-8 w-8"
+              width={32}
+              height={32}
             />
           </h1>
         </div>
@@ -188,6 +192,8 @@ export default function Index() {
                       alt={`${job.company} logo`}
                       loading="lazy"
                       className="w-8 h-8 object-contain"
+                      width={32}
+                      height={32}
                     />
                   </a>
                 </div>

@@ -56,6 +56,8 @@ export function Navigation() {
                   src="/data-matt-logo.svg"
                   alt="Data Matt Logo"
                   className="w-10 h-10"
+                  width={40}
+                  height={40}
                 />
               </div>
             </Link>
