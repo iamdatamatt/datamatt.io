@@ -62,6 +62,11 @@ export const links: LinksFunction = () => {
       href: "/apple-touch-icon.png",
     },
     { rel: "manifest", href: "/site.webmanifest" },
+    {
+      rel: "preload",
+      as: "image",
+      href: "/cdn-cgi/image/format=auto/clemson-sunset.webp",
+    },
   ];
 };
 
