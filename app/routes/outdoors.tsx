@@ -77,7 +77,7 @@ export const links: LinksFunction = () => {
     {
       rel: "preload",
       as: "image",
-      href: "/cdn-cgi/image/format=auto/clemson-sunset.webp",
+      href: "/clemson-sunset.webp",
     },
   ];
 };
